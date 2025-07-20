@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Website Screenshot</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+        input[type="text"] {
+            width: 300px;
+            padding: 8px;
+            margin-right: 10px;
+        }
+        button {
+            padding: 8px 15px;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Website Screenshot</h1>
+<form id="screenshotForm">
+    <label for="urlInput">Enter website URL:</label>
+    <input type="text" id="urlInput" placeholder="https://example.com">
+    <button type="submit">Take Screenshot</button>
+</form>
+
+<div id="result"></div>
+
+<script>
+    document.getElementById('screenshotForm').addEventListener('submit', async function(event) {
+        event.preventDefault();
+        const url = document.getElementById('urlInput').value;
+
+        if (!url) {
+            alert('Please enter a URL');
+            return;
+        }
+
+        // Отправка запроса на сервер
+        const response = await fetch(`/screenshot?url=${encodeURIComponent(url)}`, {
+            method: 'GET'
+        });
+
+        if (response.ok) {
+            const result = await response.text();
+            document.getElementById('result').innerHTML = result;
+        } else {
+            document.getElementById('result').innerHTML = 'Error taking screenshot.';
+        }
+    });
+</script>
+
+</body>
+</html>

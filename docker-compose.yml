@@ -1,0 +1,17 @@
+version: '3'
+
+services:
+  goscreener:
+    build:
+      context: ./app
+    container_name: goscreener
+    ports:
+      - "${HTTP_LISTEN_PORT}:8080"
+      - "6060:6060"
+    environment:
+      - CHROME_PATH=/usr/bin/google-chrome
+      - GO_ENV=production
+      - HTTP_LISTEN_PORT=${HTTP_LISTEN_PORT}
+      - HOSTNAME=${HOSTNAME}
+      - SCREENSHOTS_DIR=/app/screens
+    entrypoint: ["/usr/bin/tini", "--", "/scripts/start.sh"]
