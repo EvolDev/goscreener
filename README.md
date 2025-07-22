@@ -4,7 +4,7 @@
 
 ## Description
 
-Site page screenshot api, based on chromedp
+A simple service for creating screenshots of site pages, based on chromedp
 
 ## Usage
 
