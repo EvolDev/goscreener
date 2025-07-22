@@ -1,2 +1,8 @@
 .idea
 screens
+*.exe
+*.out
+*.test
+*.a
+*.so
+*.o
