@@ -72,3 +72,7 @@ Content-Length: 1495
 | with_scroll                     | Makes smooth scrolling actions of the page, first down to the bottom and then to the top         | bool        | false         |                                                                                                   |
 | remove_nodes                    | Removes nodes from the DOM                                                                       | string json |               | "remove_nodes": [{"selector":"div[data-type=\"banner\"], div.banner","parent":false,"many":true}] |
 | fixed_nodes                     | Fixed positions of elements in the DOM                                                           | string json |               | "fixed_nodes" : [{"selector":"#headerSticked"]}]                                                  |
+
+## License
+
+This project is licensed under the MIT License – see the [LICENSE](./LICENSE) file for details.
